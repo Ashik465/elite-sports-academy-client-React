@@ -3,14 +3,16 @@ import signUpimg from '../../assets/lotte/signup.json'
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../sharedPage/socialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState(null);
+  const {createEmailUser,updateUserProfile} = useContext(AuthContext)
   // react form hook 
   const { register, handleSubmit , formState: { errors } } = useForm();
-  const onSubmit = (data) => {console.log(data);
+  const onSubmit = (data) => {
   
 if(data.password !== data.confirmPassword){
   
@@ -20,6 +22,31 @@ if(data.password !== data.confirmPassword){
     setError(null)
   }
 
+  // email and password signup
+
+  createEmailUser(data.email, data.password)
+  .then((result)=>{
+    const loggedUser = result.user;
+    console.log(loggedUser);
+    updateUserProfile(data.name, data.photoUrl)
+    .then(()=>{
+      // Profile updated!
+      
+    }
+    )
+    .catch((err)=>{
+      console.log(err)
+    }
+    )
+
+  })
+  .catch((err)=>{
+    console.log(err)
+    
+  })
+
+
+    
        
   
   }

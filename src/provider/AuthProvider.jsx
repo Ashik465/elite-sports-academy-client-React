@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged,  signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -33,11 +33,14 @@ const googleLogIn = () => {
     return signOut(auth);
   };
 
-  // password reset 
+  // update user profile
 
-    const resetPassword = (email) => {
-        return sendPasswordResetEmail(auth, email);
-        };
+  const updateUserProfile = (name, photoUrl) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoUrl,
+    });
+  };
 
  //observer user auth state
 
@@ -54,7 +57,7 @@ const googleLogIn = () => {
     };
   }, []);
 
-  const authInfo = { googleLogIn, logout,user,createEmailUser,loader,signInEmailUser,setLoader,resetPassword ,setUser };
+  const authInfo = { googleLogIn, logout,user,createEmailUser,loader,signInEmailUser,setLoader,setUser,updateUserProfile };
 
 
     return (
