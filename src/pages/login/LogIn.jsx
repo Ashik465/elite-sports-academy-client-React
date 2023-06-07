@@ -1,35 +1,69 @@
 import Lottie from "lottie-react";
 import logimg from '../../assets/lotte/login.json'
+import { Helmet } from "react-helmet-async";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import SocialLogin from "../../sharedPage/socialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
 
 const LogIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  //react-hook-form
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {console.log(data);}
     return (
-        <>    
+        <>   
+         <Helmet>
+        <title>EliteSports Academy | LogIn</title>
+      </Helmet> 
          <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
   <div className="w-1/2 lg:pr-20">
   <Lottie animationData={logimg} loop={true} />
     </div>
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <div className="card-body">
+    <div className="card rounded-none w-full max-w-sm shadow-2xl bg-base-100">
+   
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
+      <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+              Sign in to your account
+            </h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text" placeholder="email" className="input input-bordered" />
+          <input type="text" placeholder="email" {...register("email", { required: true, maxLength: 20 })} className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="text" placeholder="password" className="input input-bordered" />
+          <div className=" relative">
+          <input type={showPassword? "text": "password"} placeholder="password" {...register("password", { required: true, maxLength: 20 })} className="input input-bordered w-full" />
+          <button onClick={()=>setShowPassword(!showPassword)} className="btn bg-black text-white  absolute top-0 right-0 rounded-l-none hover:bg-black"> {showPassword  ?  <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash> }  </button>
+          </div>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          
+          <input type="submit" className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]"  value="Login" />
         </div>
-      </div>
+        <p className="text-sm font-light text-gray-500">
+                Don’t have an account yet?{" "}
+                <Link
+                  to="/signup"
+               
+                  className="font-medium link text-[#AC9C63] 
+                  hover:text-red-500 "
+                >
+                  Sign up
+                </Link>
+              </p>
+              
+      </form>
+      <SocialLogin></SocialLogin>
     </div>
   </div>
 </div>

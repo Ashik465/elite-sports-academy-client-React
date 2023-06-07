@@ -5,15 +5,15 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <footer className="footer p-10 bg-yellow-200 text-base-content">
+      <footer className="footer p-10 bg-yellow-200 text-base-content ">
         <div>
           <Link to="/">
             <div className="avatar">
-              <div className="w-20 rounded-full">
+              <div className="w-20 ">
                 <img src={logo} />
               </div>
             </div>
-            <p className=" font-bold text-xl">EliteSports Academy</p>
+            <p className="text-black font-bold text-xl">EliteSports Academy</p>
           </Link>
           <div className="grid grid-flow-col gap-4 cursor-pointer ">
             <a>
