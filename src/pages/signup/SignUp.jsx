@@ -106,7 +106,10 @@ if(data.password !== data.confirmPassword){
           <label className="label">
             <span className="label-text">Name</span>
           </label>
-          <input type="text" placeholder="Name" {...register("name", {  maxLength: 20 })} className="input input-bordered" />
+          <input type="text" placeholder="Name" {...register("name", { required: true, maxLength: 20 })} className="input input-bordered" />
+          {errors.name?.type === "required" && (
+                  <p className="text-red-500"> Name is required</p>
+                )}
         </div>
         <div className="form-control">
           <label className="label">
