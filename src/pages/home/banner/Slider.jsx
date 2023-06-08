@@ -18,7 +18,7 @@ const Slider = () => {
 
     return (
         <>
-            <div className="swiper">
+            <div className="swiper ">
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide><div className="slide-content">
           <img src={banner1} alt="" />
