@@ -4,12 +4,15 @@ import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../sharedPage/socialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [error, setError] = useState(null);
   const {createEmailUser,updateUserProfile} = useContext(AuthContext)
+  const navigate = useNavigate()
   // react form hook 
   const { register, handleSubmit , formState: { errors } } = useForm();
   const onSubmit = (data) => {
@@ -32,6 +35,29 @@ if(data.password !== data.confirmPassword){
     .then(()=>{
       // Profile updated!
       
+      axios.post('http://localhost:5000/users', {
+        name: data.name, email: data.email,host:'student'
+      })
+      .then((data)=>{
+
+        console.log(data);
+        if (data.data.insertedId) {
+         
+          navigate("/");
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "sign up succcess",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+
+
+      }
+      ) 
+      
     }
     )
     .catch((err)=>{
@@ -42,6 +68,7 @@ if(data.password !== data.confirmPassword){
   })
   .catch((err)=>{
     console.log(err)
+    setError(err.message)
     
   })
 
@@ -123,7 +150,7 @@ if(data.password !== data.confirmPassword){
                   <input
                     type="text"
                     placeholder="Photo-URL"
-                    {...register("photoURL", { required: true })}
+                    {...register("photoURL", )}
                     className="input input-bordered"
                   />
                 </div>
