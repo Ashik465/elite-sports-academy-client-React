@@ -2,10 +2,19 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import LoadingSpiner from "../../loader/LoadingSpiner";
 
 
 const Navbar = () => {
-  const {user,logout} = useContext(AuthContext)
+  const {user,logout,loader} = useContext(AuthContext)
+
+
+// loader 
+
+if(loader){
+  return <LoadingSpiner></LoadingSpiner>
+}
+
 
      //log out 
 const handleLogout =()=>{
