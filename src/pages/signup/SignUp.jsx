@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
   const [error, setError] = useState(null);
-  const {createEmailUser,updateUserProfile} = useContext(AuthContext)
+  const {createEmailUser,updateUserProfile,setUser} = useContext(AuthContext)
   const navigate = useNavigate()
   // react form hook 
   const { register, handleSubmit , formState: { errors } } = useForm();
@@ -34,13 +34,20 @@ if(data.password !== data.confirmPassword){
     updateUserProfile(data.name, data.photoUrl)
     .then(()=>{
       // Profile updated!
+      setUser(loggedUser => {
+        const updatedLoggedUser = {...loggedUser}
+        updatedLoggedUser.displayName = data.name;
+        updatedLoggedUser.photoURL = data.photoUrl;
+
+     return updatedLoggedUser 
+      })
       
       axios.post('http://localhost:5000/users', {
         name: data.name, email: data.email,host:'student'
       })
       .then((data)=>{
 
-        console.log(data);
+        // console.log(data);
         if (data.data.insertedId) {
          
           navigate("/");
