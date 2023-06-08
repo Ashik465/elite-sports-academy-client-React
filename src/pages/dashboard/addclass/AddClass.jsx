@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
  const img_hosting_token = import.meta.env. VITE_IMAGE_UPLOAD_TOKEN;
 const AddClass = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit  } = useForm();
+  const token = localStorage.getItem("access token");
+
 
   const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
@@ -22,16 +25,8 @@ const AddClass = () => {
     .then(response => response.json())
     .then(result => {
 
-        // const classData = {
-        //     instructorName: data.instructorName,
-        //     instructorEmail: data.instructorEmail,
-        //     className: data.className,
-        //     price: data.price,
-        //     availableSeats: data.availableSeats,
-        //     classImg: result.data.display_url,
-        // };
-       
-
+      
+      
         if(result.success){
             const classData = {
                 instructorName: data.instructorName,
@@ -43,19 +38,26 @@ const AddClass = () => {
                 status: 'pending'
             };
             console.log(classData);
-            // fetch('https://elite-sports-academy.herokuapp.com/addclass', {
-            //     method: 'POST',
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify(classData)
-            // })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         if (data.insertedId) {
-            //             alert('Class added successfully');
-            //         }
-            //     })
+            fetch('http://localhost:5000/classes', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(classData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Class added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    }
+                })
         }
 
         }
