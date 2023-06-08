@@ -31,19 +31,22 @@ if(data.password !== data.confirmPassword){
   .then((result)=>{
     const loggedUser = result.user;
     console.log(loggedUser);
-    updateUserProfile(data.name, data.photoUrl)
+    
+    updateUserProfile(data.name, data.photoURL)
     .then(()=>{
       // Profile updated!
       setUser(loggedUser => {
         const updatedLoggedUser = {...loggedUser}
         updatedLoggedUser.displayName = data.name;
-        updatedLoggedUser.photoURL = data.photoUrl;
+        updatedLoggedUser.photoURL = data.photoURL;
 
      return updatedLoggedUser 
       })
+
+      //axios post request to add user to database
       
       axios.post('http://localhost:5000/users', {
-        name: data.name, email: data.email,host:'student'
+        name: data.name, email: data.email,role:'student'
       })
       .then((data)=>{
 

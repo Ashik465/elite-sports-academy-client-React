@@ -10,7 +10,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {signInEmailUser} = useContext(AuthContext)
+  const {signInEmailUser,setLoader} = useContext(AuthContext)
   const [error ,setError] =useState('')
   const navigate = useNavigate()
   //react-hook-form
@@ -24,6 +24,8 @@ const LogIn = () => {
   .then((result)=>{
     const loggedUser = result.user;
     console.log(loggedUser);
+    setLoader(false)
+
     navigate("/")
   })
   .catch((err)=>{
