@@ -70,7 +70,7 @@ content={user.displayName} place="left"></Tooltip>
         <li><a>Settings</a></li>
         <li><Link onClick={handleLogout} to="/login" >Logout</Link></li>
       </ul>
-    </div> : <Link to='/login' className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]  ">Login</Link>}
+    </div> : <Link to='/login' className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]    ">Login</Link>}
     {/* picture end  */}
 
 

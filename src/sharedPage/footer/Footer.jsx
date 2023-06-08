@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <footer className="footer p-10 bg-yellow-200 text-base-content ">
+      <footer className="footer p-10 bg-yellow-200 text-base-content sm:overflow-x-auto">
         <div>
           <Link to="/">
             <div className="avatar">
@@ -87,9 +87,9 @@ const Footer = () => {
       <label className="label">
         <span className="label-text">Enter your email address</span>
       </label> 
-      <div className="relative">
-        <input type="text" placeholder="username@gmail.com" className="input input-bordered w-full pr-16" /> 
-        <button className="btn bg-black text-white hover:bg-green-400 absolute top-0 right-0 rounded-l-none">Subscribe</button>
+      <div className="relative ">
+        <input type="text" placeholder="username@gmail.com" className="input input-bordered w-full pr-16 " /> 
+        <button className="btn bg-black text-white hover:bg-green-400 absolute top-0 right-0 rounded-l-none ">Subscribe</button>
       </div>
     </div>
   </div>
