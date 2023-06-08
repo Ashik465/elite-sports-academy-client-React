@@ -3,6 +3,10 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/home/Home/Home";
 import LogIn from "../pages/login/LogIn";
 import SignUp from "../pages/signup/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import AddClass from "../pages/dashboard/addclass/AddClass";
+import DashboardLayout from "../layout/DashboardLayout";
+import MyClasses from "../pages/dashboard/myclasses/MyClasses";
 
 
  export const router = createBrowserRouter([
@@ -23,6 +27,26 @@ import SignUp from "../pages/signup/SignUp";
           path: "/signup",
           element:<SignUp></SignUp>,
         },
+       
+      ],
+    },
+    {
+      path: "/dashboard",
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+      //   errorElement: <ErrorPage />,
+      children: [
+        {
+          path: "addclass",
+          element: <AddClass></AddClass>,
+        },
+        {
+          path: "myclasses",
+          element: <MyClasses></MyClasses>,
+        },
+       
+       
+       
+       
       ],
     },
   ]);
