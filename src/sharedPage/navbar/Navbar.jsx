@@ -1,7 +1,21 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 
 const Navbar = () => {
+  const {user,logout} = useContext(AuthContext)
+
+     //log out 
+const handleLogout =()=>{
+  logout()
+  .then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      console.log(error)
+    });
+}
     return (
         <>
            <div className="navbar bg-base-100">
@@ -23,10 +37,36 @@ const Navbar = () => {
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to='/'>Home</NavLink></li> 
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/instructors'>Instructors</NavLink></li>
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/classes'>Classes</NavLink></li>
+      {user &&   <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/dashboard'>Dashboard</NavLink></li>}
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]  ">Login</Link>
+
+      {/* //picture */}
+  {user?.email ? <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+        <a  id="my-anchor-element"><img  src={user?.photoURL
+} /></a> <Tooltip anchorSelect="#my-anchor-element"
+content={user.displayName} place="left"></Tooltip>
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            {/* <span className="badge">New</span> */}
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><Link onClick={handleLogout} to="/login" >Logout</Link></li>
+      </ul>
+    </div> : <Link to='/login' className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]  ">Login</Link>}
+    {/* picture end  */}
+
+
+
+    
   </div>
 </div> 
         </>
