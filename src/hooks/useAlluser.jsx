@@ -3,16 +3,16 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 
-const useClasses = () => {
+const useAlluser = () => {
   const { user, loader } = useContext(AuthContext);
   const token = localStorage.getItem("access token");
 
-  const { refetch, data: AllClasses = [] } = useQuery({
+  const { refetch, data: allUser = [] } = useQuery({
     queryKey: ["classes", user?.email],
     enabled: !loader,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/classes/all?email=${user?.email}`,
+        `http://localhost:5000/users/all?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,
@@ -22,7 +22,7 @@ const useClasses = () => {
       return res.json();
     },
   });
-  return [AllClasses, refetch];
+  return [allUser, refetch];
 };
 
-export default useClasses;
+export default useAlluser;
