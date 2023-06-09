@@ -35,7 +35,9 @@ const AddClass = () => {
                 price: parseFloat(data.price),
                 availableSeats: parseInt(data.availableSeats),
                 classImg: result.data.display_url,
-                status: 'pending'
+                status: 'pending',
+                enrolledStudents: 0,
+                feedback :'no feedback yet'
             };
             console.log(classData);
             fetch('http://localhost:5000/classes', {
