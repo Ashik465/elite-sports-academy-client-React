@@ -130,7 +130,7 @@ const ManageClasses = () => {
                 <button onClick={()=>{handleUpdateStatusDeny(item?._id)}} disabled={ item?.status ==='Approve'? true : item?.status==='Deny' ? true :  false  }className="btn btn-warning   text-white"> Deny</button>  
                 </td>
                 <td>
-                  <Link to={`/dashboard/updateclass/${item?._id}`}  className="btn btn-info   text-white">Feedback</Link>
+                  <Link to={`/dashboard/feedback/${item?._id}`}  className="btn btn-info   text-white">Feedback</Link>
                 </td>
               </tr>
             ))}
