@@ -62,7 +62,7 @@ const ManageUser = () => {
     return (
         <>
             <Helmet>
-        <title>EliteSports Academy | My Classes</title>
+        <title>EliteSports Academy | Manage User</title>
       </Helmet>
        {/* // table start  */}
 
@@ -73,6 +73,7 @@ const ManageUser = () => {
             <tr>
               <th>#</th>
               
+              <th> Image </th>
               <th> Name </th>
               <th>Email</th>
               <th>Roll</th>
@@ -85,7 +86,18 @@ const ManageUser = () => {
             {allUser?.map((item, index) => (
               <tr key={item._id}>
                 <td>{index + 1}</td>
-                
+                <td>
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src={item?.
+                          image
+                          }
+                        alt="user image"
+                      />
+                    </div>
+                  </div>
+                </td>
                 <td>
                   {item?.name} 
                 </td>
@@ -95,10 +107,10 @@ const ManageUser = () => {
                 <td >{item?.role}</td>
                
                 <td>
-                <button onClick={()=>{handleMakeAdmin(item?._id)}} disabled={ item?.role ==='Admin'? true : false  }className="btn  bg-[#a78bfa] text-white"> Make Admin</button> 
+                 <button onClick={()=>{handleMakeAdmin(item?._id)}} disabled={ item?.role ==='Admin'? true : false  }className="btn  bg-[#a78bfa] text-white"> Make Admin</button> 
                 </td>
                 <td>
-                <button onClick={()=>{handleMakeInstructor(item?._id)}} disabled={ item?.role ==='Instructor'? true : false  }className="btn btn-warning   text-white"> Make Instructor</button> 
+                 <button onClick={()=>{handleMakeInstructor(item?._id)}} disabled={ item?.role ==='Instructor'? true : false  }className="btn bg-green-400   text-white"> Make Instructor</button> 
                 </td>
               </tr>
             ))}

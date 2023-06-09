@@ -21,7 +21,7 @@ const handleGoogleSignIn = () => {
              //axios post request to add user to database
       
       axios.post('http://localhost:5000/users', {
-        name: loggedInUser.displayName, email: loggedInUser.email,role:'student'
+        name: loggedInUser.displayName, email: loggedInUser.email,role:'student', image:loggedInUser.photoURL
       })
       .then((data)=>{
 
