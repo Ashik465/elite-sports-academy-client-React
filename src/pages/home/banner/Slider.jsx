@@ -23,7 +23,7 @@ const Slider = () => {
         <SwiperSlide><div className="slide-content">
           <img src={banner1} alt="" />
           <div className="overlay-text p-5 md:p-20 ">
-            <h3 className=" text-xl md:text-7xl font-bold md:mb-4 uppercase">Try a Free Sports Class!</h3>
+            <h3 className=" text-xl md:text-7xl font-bold md:mb-4 uppercase">This Summer join Us!</h3>
             <p className="hidden md:block">Get Your performance journey started at EliteSports Academy with a free sports class.we offer a world class training experiences.Reach your full potential at  EliteSports Academy  </p>
 
             <button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 

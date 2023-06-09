@@ -29,8 +29,10 @@ const Instructor = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">Name:{instructor?.name}</h2>
-              <p className=" font-semibold tracking-tight">Email:{instructor?.email}</p>
+              <h2 className="card-title"><span className="text-[#AC9C63]  font-bold">Name: </span>{instructor?.name}</h2>
+              <p className=" font-semibold tracking-tight"><span className="text-cyan-700 font-bold">Email: </span> {instructor?.email}</p>
+
+            
             
             </div>
           </div>

@@ -35,7 +35,7 @@ const handleLogout =()=>{
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to='/'>Home</NavLink></li> 
-      <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/instructors'>Instructors</NavLink></li>
+      <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/instructor'>Instructors</NavLink></li>
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/classes'>Classes</NavLink></li>
       </ul>
     </div>
