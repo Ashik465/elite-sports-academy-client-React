@@ -76,6 +76,7 @@ const AddClass = () => {
       <Helmet>
         <title>EliteSports Academy | Add class</title>
       </Helmet>
+      <h2  className="text-4xl text-[#585345] text-center font-bold my-10"> Add a Class</h2>
       {/* form start */}
       <div className="  rounded-lg bg-black my-20">
         <form onSubmit={handleSubmit(onSubmit)} className="p-5">

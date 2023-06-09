@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const[classes] = useClasses()
@@ -17,6 +18,7 @@ const MyClasses = () => {
             <tr>
               <th>#</th>
               <th>Class image </th>
+              <th>Class Name </th>
               <th>Status</th>
               <th>Total Enrolled Student</th>
               <th>Feedback</th>
@@ -41,6 +43,9 @@ const MyClasses = () => {
                   </div>
                 </td>
                 <td>
+                  {item?.className} 
+                </td>
+                <td>
                   {item?.status} 
                 </td>
                 <td >{item?.
@@ -49,7 +54,7 @@ enrolledStudents}</td>
                   {item?.feedback}
                 </td>
                 <td>
-                  <button  className="btn btn-success   text-white">update</button>
+                  <Link to={`/dashboard/updateclass/${item?._id}`}  className="btn btn-success   text-white">update</Link>
                 </td>
               </tr>
             ))}
