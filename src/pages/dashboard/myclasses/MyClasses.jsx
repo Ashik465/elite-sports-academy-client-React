@@ -48,13 +48,12 @@ const MyClasses = () => {
                 <td>
                   {item?.status} 
                 </td>
-                <td >{item?.
-enrolledStudents}</td>
+                <td >{item?.enrolledStudents}</td>
                 <td>
                   {item?.feedback}
                 </td>
                 <td>
-                  <Link to={`/dashboard/updateclass/${item?._id}`}  className="btn btn-success   text-white">update</Link>
+                  <Link to={`/dashboard/updateclass/${item?._id}`}  className="btn btn-outline btn-secondary   text-white">update</Link>
                 </td>
               </tr>
             ))}

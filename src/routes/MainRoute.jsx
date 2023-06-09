@@ -8,6 +8,7 @@ import AddClass from "../pages/dashboard/addclass/AddClass";
 import DashboardLayout from "../layout/DashboardLayout";
 import MyClasses from "../pages/dashboard/myclasses/MyClasses";
 import UpdateClass from "../pages/dashboard/updateClass/UpdateClass";
+import ManageClasses from "../pages/dashboard/Admin/manageClasses/ManageClasses";
 
 
  export const router = createBrowserRouter([
@@ -48,7 +49,10 @@ import UpdateClass from "../pages/dashboard/updateClass/UpdateClass";
           path: "updateclass/:id",
           element: <UpdateClass></UpdateClass>,
         },
-       
+        {
+          path: "manageclasses",
+          element: <ManageClasses></ManageClasses>
+        },
        
        
        
