@@ -14,6 +14,7 @@ import ManageUser from "../pages/dashboard/Admin/manageUser/ManageUser";
 import Instructor from "../pages/instructor/Instructor";
 import Classes from "../pages/classes/Classes";
 import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
 
  export const router = createBrowserRouter([
@@ -52,11 +53,11 @@ import AdminRoute from "./AdminRoute";
       children: [
         {
           path: "addclass",
-          element: <AddClass></AddClass>,
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
         },
         {
           path: "myclasses",
-          element: <MyClasses></MyClasses>,
+          element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
         },
         {
           path: "updateclass/:id",
