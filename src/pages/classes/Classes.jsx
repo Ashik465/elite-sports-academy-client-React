@@ -7,8 +7,6 @@ import useStudent from "../../hooks/useStudent";
 const Classes = () => {
   const [classes, setClasses] = useState([]);
   const [isStudent] = useStudent();
- 
-
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -19,13 +17,54 @@ const Classes = () => {
       });
   }, []);
 
-  const handleNotifaction = () => {
+ const handleNotifaction = () => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "You have to log in first to select the classes!",
     });
   };
+
+ // handle select class
+
+  const handleSelectClass = (classess) => {
+    
+    const classData = {
+      classId:classess?._id ,
+      className: classess?.className,
+      instructorName: classess?.instructorName,
+      instructorEmail: classess?.instructorEmail,
+      price: classess?.price,
+      classImg: classess?.classImg,
+      availableSeats: classess?.availableSeats,
+      status : classess?.status,
+      enrolledStudents: classess?.enrolledStudents,
+      feedback: classess?.feedback,
+
+  }
+// console.log(classData);  
+fetch("http://localhost:5000/selectedClass", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(classData),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.insertedId) {
+     
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Class booked successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  });
+
+  }
 
   return (
     <>
@@ -67,7 +106,7 @@ const Classes = () => {
 
               <div className="card-actions">
                 {user?.email ? (
-                  <button disabled={classess?.availableSeats===0 ? true : isStudent?.student? false :true } className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]   ">
+                  <button onClick={()=>handleSelectClass(classess)} disabled={classess?.availableSeats===0 ? true : isStudent?.student? false :true } className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]   ">
                     select
                   </button>
                 ) : (
