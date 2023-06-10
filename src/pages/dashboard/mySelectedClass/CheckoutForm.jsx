@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import './CheckoutForm.css'
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import Swal from "sweetalert2";
 const token = localStorage.getItem("access token");
 const CheckoutForm = ({classData}) => {
     const stripe = useStripe();
@@ -11,7 +12,7 @@ const CheckoutForm = ({classData}) => {
    const [clientSecret, setClientSecret] = useState('')
 
 
-//   console.log(classData.price);
+  console.log(classData);
 
    //   get clientSecret from backend
    useEffect(() => {
@@ -84,15 +85,48 @@ const CheckoutForm = ({classData}) => {
         console.log(paymentIntent)
         setCardError('')
         if(paymentIntent.status === 'succeeded'){
-        //   fetch('http://localhost:5000/enroll', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //       authorization: `Bearer ${token}`,
-        //     },
-        //     body: JSON.stringify({classId: classData._id})
+        
+  
+        const paymentInfo = {
+            ...classData,
+            transactionId: paymentIntent.id,
+            date: new Date(),
+            email: user?.email,
+            name: user?.displayName,
+          }
 
-        alert('Payment Successful')
+
+          fetch("http://localhost:5000/payment", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(paymentInfo),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              if (data.insertResult.insertedId) {
+               
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Payment Successful',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+
+
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+
+
+
+
+       //end
         }
       }
 
