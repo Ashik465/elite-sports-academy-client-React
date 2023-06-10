@@ -3,8 +3,13 @@ import Navbar from "../sharedPage/navbar/Navbar";
 import { Link, Outlet } from "react-router-dom";
 import { SiGoogleclassroom,SiGooglemeet } from "react-icons/si";
 import { MdManageAccounts } from "react-icons/md";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
+
+const [isAdmin] = useAdmin();
+console.log(isAdmin);
+
     return (
         <>
         {/* navbar  */}
@@ -31,8 +36,10 @@ const DashboardLayout = () => {
       
 
       {/* Admin  */}
-      <li><Link to='/dashboard/manageclasses' > <SiGoogleclassroom></SiGoogleclassroom> Manage Classes</Link></li>
-      <li><Link to='/dashboard/manageuser' > <MdManageAccounts></MdManageAccounts> Manage User</Link></li>
+
+      {isAdmin?.admin && <><li><Link to='/dashboard/manageclasses' > <SiGoogleclassroom></SiGoogleclassroom> Manage Classes</Link></li>
+      <li><Link to='/dashboard/manageuser' > <MdManageAccounts></MdManageAccounts> Manage User</Link></li></>}
+      
 
     </ul>
   
