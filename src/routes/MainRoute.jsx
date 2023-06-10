@@ -13,6 +13,7 @@ import Feedback from "../pages/dashboard/Admin/manageClasses/Feedback";
 import ManageUser from "../pages/dashboard/Admin/manageUser/ManageUser";
 import Instructor from "../pages/instructor/Instructor";
 import Classes from "../pages/classes/Classes";
+import AdminRoute from "./AdminRoute";
 
 
  export const router = createBrowserRouter([
@@ -63,16 +64,16 @@ import Classes from "../pages/classes/Classes";
         },
         {
           path: "manageclasses",
-          element: <ManageClasses></ManageClasses>,
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
         },
         {
           path: "feedback/:id",
-          element: <Feedback></Feedback>
+          element: <Feedback></Feedback> ,
         },
        
         {
           path: "manageuser",
-          element: <ManageUser></ManageUser>
+          element: <AdminRoute><ManageUser></ManageUser></AdminRoute> ,
         },
        
        
