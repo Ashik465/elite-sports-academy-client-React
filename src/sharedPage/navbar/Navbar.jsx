@@ -29,7 +29,7 @@ const handleLogout =()=>{
         <>
            <div className="navbar bg-base-100">
   <div className="navbar-start">
-    <div className="dropdown">
+    <div className="dropdown z-50">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
@@ -37,6 +37,7 @@ const handleLogout =()=>{
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to='/'>Home</NavLink></li> 
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/instructor'>Instructors</NavLink></li>
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/classes'>Classes</NavLink></li>
+      {user &&   <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/dashboard'>Dashboard</NavLink></li>}
       </ul>
     </div>
     <Link to='/' className="btn btn-ghost normal-case text-xl">EliteSports Academy</Link>

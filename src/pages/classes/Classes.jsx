@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import useStudent from "../../hooks/useStudent";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
   const [isStudent] = useStudent();
   const { user } = useContext(AuthContext);
 
+  //  fetch class data from database
   useEffect(() => {
     fetch("http://localhost:5000/classes/approve")
       .then((res) => res.json())
@@ -16,7 +18,7 @@ const Classes = () => {
         setClasses(data);
       });
   }, []);
-
+// handle  notification  for login
  const handleNotifaction = () => {
     Swal.fire({
       icon: "error",
@@ -69,11 +71,14 @@ fetch("http://localhost:5000/selectedClass", {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-20 px-5 bg-amber-100">
+     <Helmet>
+        <title>EliteSports Academy | Classes</title>
+      </Helmet>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 py-20 px-5 bg-amber-100">
         {classes?.map((classess) => (
           <div
             key={classess?._id}
-            className={`card w-96 bg-base-100 shadow-xl rounded-none ${classess?.availableSeats===0 &&  "bg-red-600"}`}
+            className={`card my-5 bg-base-100 shadow-xl rounded-none ${classess?.availableSeats===0 &&  "bg-red-600"}`}
           >
             <figure className="px-10 pt-10">
               <img
