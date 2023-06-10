@@ -77,9 +77,10 @@ fetch("http://localhost:5000/selectedClass", {
           >
             <figure className="px-10 pt-10">
               <img
+              
                 src={classess?.classImg}
                 alt="class"
-                className="rounded-xl"
+                className="rounded-xl h-96 w-full object-cover"
               />
             </figure>
             <div className="card-body ">

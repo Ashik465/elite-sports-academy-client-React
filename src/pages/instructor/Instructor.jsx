@@ -23,7 +23,7 @@ const Instructor = () => {
           <div key={instructor._id} className="card w-96 bg-base-100 shadow-xl rounded-none">
             <figure>
               <img
-                
+                className=" h-96 w-full object-cover "
                 src={instructor?.image}
                 alt="instructor image"
               />
