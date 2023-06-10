@@ -17,6 +17,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import StudentRoute from "./StudentRoute";
 import MySelectedClass from "../pages/dashboard/mySelectedClass/MySelectedClass";
+import Payment from "../pages/dashboard/mySelectedClass/Payment";
 
 
  export const router = createBrowserRouter([
@@ -81,6 +82,10 @@ import MySelectedClass from "../pages/dashboard/mySelectedClass/MySelectedClass"
         {
           path: "myselectedclass",
           element: <StudentRoute><MySelectedClass></MySelectedClass></StudentRoute> ,
+        },
+        {
+          path: "payment",
+          element: <StudentRoute><Payment></Payment></StudentRoute> ,
         },
        
        
