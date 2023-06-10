@@ -5,11 +5,13 @@ import { SiGoogleclassroom,SiGooglemeet } from "react-icons/si";
 import { MdManageAccounts } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import useStudent from "../hooks/useStudent";
 
 const DashboardLayout = () => {
 
 const [isAdmin] = useAdmin();
 const [isInstructor] = useInstructor();
+const[isStudent] = useStudent();
 
     return (
         <>
@@ -38,7 +40,9 @@ const [isInstructor] = useInstructor();
 
      
       
+    {/* student  */}
 
+      {isStudent?.student && <> <li><Link to='/dashboard/myclasses' > <SiGooglemeet></SiGooglemeet>  My Selected classes</Link></li> </>}
 
 
       {/* Admin  */}
