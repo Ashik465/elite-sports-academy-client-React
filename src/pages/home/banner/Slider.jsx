@@ -13,6 +13,7 @@ import './Slider.css'
 import banner1 from '../../../assets/banner/banner1.jpg'
 import banner2 from '../../../assets/banner/banner2.jpg'
 import banner3 from '../../../assets/banner/banner3.jpg'
+import { Link } from "react-router-dom";
 
 const Slider = () => {
 
@@ -25,12 +26,12 @@ const Slider = () => {
           <div className="overlay-text p-5 md:p-20 ">
             <h3 className=" text-xl md:text-7xl font-bold md:mb-4 uppercase">This Summer join Us!</h3>
             <p className="hidden md:block">Get Your performance journey started at EliteSports Academy with a free sports class.we offer a world class training experiences.Reach your full potential at  EliteSports Academy  </p>
-
-            <button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
+<Link to = '/classes'> <button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
            md: mt-4 bg-opacity-20 hover:opacity-100 
         ">
               Start Your free trial
-            </button>
+            </button></Link>
+           
           </div>
         </div></SwiperSlide>
         <SwiperSlide> <div className="slide-content">
@@ -38,12 +39,12 @@ const Slider = () => {
           <div className="overlay-text p-5 md:p-20 ">
             <h3 className=" text-xl md:text-7xl font-bold md:mb-4 uppercase"> join a membership program!</h3>
             <p className="hidden md:block"> EliteSports Academy membership offer something for every athlete.we offer a world class training experiences.Reach your full potential at  EliteSports Academy  </p>
-
-            <button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
+            <Link to = '/classes'><button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
            md: mt-4 bg-opacity-20 hover:opacity-100 
         ">
               Join today
-            </button>
+            </button></Link>
+            
           </div>
         </div></SwiperSlide>
         <SwiperSlide> <div className="slide-content">
@@ -51,12 +52,12 @@ const Slider = () => {
           <div className="overlay-text p-5 md:p-20 ">
             <h3 className=" text-xl md:text-7xl font-bold md:mb-4 uppercase">Try a Free Sports Class!</h3>
             <p className="hidden md:block">Get Your performance journey started at EliteSports Academy with a free sports class.we offer a world class training experiences.Reach your full potential at  EliteSports Academy  </p>
-
-            <button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
+            <Link to = '/classes'><button className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63] 
            md: mt-4 bg-opacity-20 hover:opacity-100 
         ">
               Start Your free trial
-            </button>
+            </button></Link>
+            
           </div>
         </div></SwiperSlide>
         

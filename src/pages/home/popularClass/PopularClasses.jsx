@@ -22,7 +22,7 @@ const PopularClasses = () => {
       </h2> 
         </div>
         {/* // card  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 py-20 px-5 bg-amber-100 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 py-20 px-5 bg-lime-100 ">
         {popularClasses?.map((classess) => (
           <div
             key={classess?._id}
@@ -40,7 +40,7 @@ const PopularClasses = () => {
               <h2 className="card-title">
                 {" "}
                 <span className="text-[#AC9C63]  font-bold">Class Name:</span>
-                {classess?.className}
+               <span className=" uppercase"> {classess?.className}</span>
               </h2>
               <p>
                 <span className="text-[#AC9C63]  font-bold">Instructors :</span>{" "}
