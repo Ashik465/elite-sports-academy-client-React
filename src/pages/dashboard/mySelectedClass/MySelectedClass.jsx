@@ -1,9 +1,32 @@
 import { Link } from "react-router-dom";
 import useAllSelectedClass from "../../../hooks/useAllSelectedClass";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const MySelectedClass = () => {
-    const [selectedClasses]  = useAllSelectedClass();
+    const [selectedClasses,refetch]  = useAllSelectedClass();
+
+    // handle delete class
+    const handleDeleteClass = (id) => {
+        fetch(`http://localhost:5000/selectedClass/delete/${id}`, {
+            method: "DELETE",
+            })
+            .then((res) => res.json())
+            .then((data) => {
+            if (data.deletedCount > 0) {
+                refetch();
+                Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Your selected class has been deleted",
+                showConfirmButton: false,
+                timer: 1500,
+                });
+
+            }
+            });
+    };
+
     return (
         <>
              <Helmet>
@@ -61,7 +84,7 @@ const MySelectedClass = () => {
                   <Link to={`/dashboard/updateclass/${item?._id}`}  className="btn btn-outline btn-secondary   text-white">Pay</Link>
                 </td>
                 <td>
-                  <button  className="btn btn-warning    text-white">Delete</button>
+                  <button onClick={()=>handleDeleteClass(item?._id)}  className="btn btn-warning    text-white">Delete</button>
                 </td>
               </tr>
             ))}
