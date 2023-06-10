@@ -30,6 +30,7 @@ const Classes = () => {
   const handleSelectClass = (classess) => {
     
     const classData = {
+      studentEmail: user?.email,
       classId:classess?._id ,
       className: classess?.className,
       instructorName: classess?.instructorName,

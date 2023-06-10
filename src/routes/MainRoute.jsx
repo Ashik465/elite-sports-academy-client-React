@@ -15,6 +15,8 @@ import Instructor from "../pages/instructor/Instructor";
 import Classes from "../pages/classes/Classes";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
+import MySelectedClass from "../pages/dashboard/mySelectedClass/MySelectedClass";
 
 
  export const router = createBrowserRouter([
@@ -61,7 +63,7 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: "updateclass/:id",
-          element: <UpdateClass></UpdateClass>,
+          element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
         },
         {
           path: "manageclasses",
@@ -69,12 +71,16 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: "feedback/:id",
-          element: <Feedback></Feedback> ,
+          element: <AdminRoute><Feedback></Feedback></AdminRoute> ,
         },
        
         {
           path: "manageuser",
           element: <AdminRoute><ManageUser></ManageUser></AdminRoute> ,
+        },
+        {
+          path: "myselectedclass",
+          element: <StudentRoute><MySelectedClass></MySelectedClass></StudentRoute> ,
         },
        
        

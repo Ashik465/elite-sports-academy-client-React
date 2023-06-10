@@ -42,7 +42,7 @@ const[isStudent] = useStudent();
       
     {/* student  */}
 
-      {isStudent?.student && <> <li><Link to='/dashboard/myclasses' > <SiGooglemeet></SiGooglemeet>  My Selected classes</Link></li> </>}
+      {isStudent?.student && <> <li><Link to='/dashboard/myselectedclass' > <SiGoogleclassroom></SiGoogleclassroom>  My Selected classes</Link></li> </>}
 
 
       {/* Admin  */}
