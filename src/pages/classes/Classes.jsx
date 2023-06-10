@@ -2,9 +2,12 @@ import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import useStudent from "../../hooks/useStudent";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
+  const [isStudent] = useStudent();
+ 
 
   const { user } = useContext(AuthContext);
 
@@ -20,7 +23,7 @@ const Classes = () => {
     Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "You have to log in first to select the courses!",
+      text: "You have to log in first to select the classes!",
     });
   };
 
@@ -64,7 +67,7 @@ const Classes = () => {
 
               <div className="card-actions">
                 {user?.email ? (
-                  <button disabled={classess?.availableSeats===0 ? true : false } className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]   ">
+                  <button disabled={classess?.availableSeats===0 ? true : isStudent?.student? false :true } className="btn  border-[#AC9C63] border-2 rounded-none bg-black text-white hover:bg-[#AC9C63]   ">
                     select
                   </button>
                 ) : (
