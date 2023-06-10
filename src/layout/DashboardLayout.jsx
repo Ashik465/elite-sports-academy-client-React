@@ -4,11 +4,12 @@ import { Link, Outlet } from "react-router-dom";
 import { SiGoogleclassroom,SiGooglemeet } from "react-icons/si";
 import { MdManageAccounts } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const DashboardLayout = () => {
 
 const [isAdmin] = useAdmin();
-console.log(isAdmin);
+const [isInstructor] = useInstructor();
 
     return (
         <>
@@ -31,9 +32,14 @@ console.log(isAdmin);
       {/* Sidebar content here */}
 
       {/* instructor  */}
-      <li><Link to='/dashboard/addclass' > <SiGoogleclassroom></SiGoogleclassroom>   Add A Class</Link></li>
-      <li><Link to='/dashboard/myclasses' > <SiGooglemeet></SiGooglemeet>  My classes</Link></li>
+
+      {isInstructor?.instructor && <> <li><Link to='/dashboard/addclass' > <SiGoogleclassroom></SiGoogleclassroom>   Add A Class</Link></li>
+      <li><Link to='/dashboard/myclasses' > <SiGooglemeet></SiGooglemeet>  My classes</Link></li> </>}
+
+     
       
+
+
 
       {/* Admin  */}
 
