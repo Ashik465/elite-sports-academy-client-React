@@ -2,7 +2,7 @@ import Footer from "../sharedPage/footer/Footer";
 import Navbar from "../sharedPage/navbar/Navbar";
 import { Link, Outlet } from "react-router-dom";
 import { SiGoogleclassroom,SiGooglemeet } from "react-icons/si";
-import { MdManageAccounts } from "react-icons/md";
+import { MdManageAccounts, MdSportsScore } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useStudent from "../hooks/useStudent";
@@ -42,7 +42,10 @@ const[isStudent] = useStudent();
       
     {/* student  */}
 
-      {isStudent?.student && <> <li><Link to='/dashboard/myselectedclass' > <SiGoogleclassroom></SiGoogleclassroom>  My Selected classes</Link></li> </>}
+      {isStudent?.student && <> <li><Link to='/dashboard/myselectedclass' > <SiGoogleclassroom></SiGoogleclassroom>  My Selected classes</Link></li>
+      
+      <li><Link to='/dashboard/myenrollclasses' > <MdSportsScore></MdSportsScore>  My Enroll classes</Link></li>
+       </>}
 
 
       {/* Admin  */}
