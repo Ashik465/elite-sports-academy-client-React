@@ -96,7 +96,7 @@ const CheckoutForm = ({classData}) => {
           }
 
 
-          fetch("http://localhost:5000/payment", {
+          fetch("http://localhost:5000/paymentInfo", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -107,7 +107,7 @@ const CheckoutForm = ({classData}) => {
             .then((response) => response.json())
             .then((data) => {
               console.log(data);
-              if (data.insertResult.insertedId) {
+              if (data.enrollInsertResult.insertedId) {
                
                 Swal.fire({
                     icon: 'success',
