@@ -78,7 +78,7 @@ const MySelectedClass = () => {
                   {item?.availableSeats}
                 </td>
                 <td>
-                  {item?.price}
+                  ${item?.price}
                 </td>
                 <td>
                   <Link state={item} to='/dashboard/payment'  className="btn btn-outline btn-secondary   text-white">Pay</Link>
