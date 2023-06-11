@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import LoadingSpiner from "../../loader/LoadingSpiner";
+import logo from "../../assets/logo/logo.png";
 
 
 const Navbar = () => {
@@ -40,6 +41,14 @@ const handleLogout =()=>{
       {user &&   <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/dashboard'>Dashboard</NavLink></li>}
       </ul>
     </div>
+    <Link to="/">
+            <div className="avatar">
+              <div className="w-10 ">
+                <img src={logo} />
+              </div>
+            </div>
+            
+          </Link>
     <Link to='/' className="btn btn-ghost normal-case text-xl">EliteSports Academy</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
