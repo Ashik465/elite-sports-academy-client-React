@@ -92,7 +92,7 @@ fetch("http://localhost:5000/selectedClass", {
               <h2 className="card-title">
                 {" "}
                 <span className="text-[#AC9C63]  font-bold">Class Name:</span>
-                {classess?.className}
+                <span className=" uppercase"> {classess?.className}</span>
               </h2>
               <p>
                 <span className="text-[#AC9C63]  font-bold">Instructors :</span>{" "}
