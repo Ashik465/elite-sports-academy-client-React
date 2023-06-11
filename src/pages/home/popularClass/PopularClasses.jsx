@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Slide } from "react-awesome-reveal";
 
 const PopularClasses = () => {
   const [popularClasses, setPopularClasses] = useState([]);
@@ -15,11 +16,16 @@ const PopularClasses = () => {
 
   return (
     <>
-      <div className="text-center">
+
+
+<Slide>
+       <div className="text-center">
         <h2 className="text-4xl text-black text-center font-bold my-10 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
           Popular Classes
         </h2>
       </div>
+      </Slide>
+      
 
       {/* Card */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 py-20 px-5 bg-lime-100">
