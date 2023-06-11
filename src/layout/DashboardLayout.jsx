@@ -6,6 +6,7 @@ import { MdManageAccounts, MdPayment, MdSportsScore } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useStudent from "../hooks/useStudent";
+import { Helmet } from "react-helmet-async";
 
 const DashboardLayout = () => {
 
@@ -15,6 +16,9 @@ const[isStudent] = useStudent();
 
     return (
         <>
+         <Helmet>
+        <title>EliteSports Academy | Dashboard</title>
+      </Helmet>
         {/* navbar  */}
         <Navbar></Navbar>
 

@@ -63,7 +63,7 @@ const handleLogout =()=>{
       </ul>
     </div>
     <Link to="/">
-            <div className="avatar">
+            <div className=" hidden md:flex ">
               <div className="w-10 ">
                 <img src={logo} />
               </div>
@@ -83,7 +83,7 @@ const handleLogout =()=>{
   <div className="navbar-end">
 
     {/* toggle dark mode */}
-    <label className="swap swap-rotate px-4">
+    <label className="swap swap-rotate md:px-4">
   
   {/* this hidden checkbox controls the state */}
   <input type="checkbox"
