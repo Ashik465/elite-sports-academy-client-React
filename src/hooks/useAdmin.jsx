@@ -12,7 +12,7 @@ const useAdmin = () => {
     enabled: !loader,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/users/isAdmin?email=${user?.email}`,
+        `https://elite-sports-academy-server.vercel.app/users/isAdmin?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

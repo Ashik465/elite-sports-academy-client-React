@@ -12,7 +12,7 @@ const Classes = () => {
 
   //  fetch class data from database
   useEffect(() => {
-    fetch("http://localhost:5000/classes/approve")
+    fetch("https://elite-sports-academy-server.vercel.app/classes/approve")
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);
@@ -46,7 +46,7 @@ const Classes = () => {
 
   }
 // console.log(classData);  
-fetch("http://localhost:5000/selectedClass", {
+fetch("https://elite-sports-academy-server.vercel.app/selectedClass", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

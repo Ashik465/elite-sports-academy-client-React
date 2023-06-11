@@ -14,7 +14,7 @@ const handleFeedback = (e) => {
     const updateStatus = {
         feedback: feedback,
     };
-    fetch(`http://localhost:5000/classes/feedback/${id}`, {        
+    fetch(`https://elite-sports-academy-server.vercel.app/classes/feedback/${id}`, {        
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updateStatus),

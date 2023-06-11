@@ -13,7 +13,7 @@ const ManageUser = () => {
         const updateRoll = {
             role: "Admin",
         };
-        fetch(`http://localhost:5000/users/${id}`, {        
+        fetch(`https://elite-sports-academy-server.vercel.app/users/${id}`, {        
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateRoll),
@@ -39,7 +39,7 @@ const ManageUser = () => {
         const updateRoll = {
             role: "Instructor",
         };
-        fetch(`http://localhost:5000/users/${id}`, {        
+        fetch(`https://elite-sports-academy-server.vercel.app/users/${id}`, {        
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateRoll),

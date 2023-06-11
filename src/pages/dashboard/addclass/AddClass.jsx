@@ -40,7 +40,7 @@ const AddClass = () => {
                 feedback :'no feedback yet'
             };
             console.log(classData);
-            fetch('http://localhost:5000/classes', {
+            fetch('https://elite-sports-academy-server.vercel.app/classes', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

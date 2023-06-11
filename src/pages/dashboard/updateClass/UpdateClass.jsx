@@ -19,7 +19,7 @@ const UpdateClass = () => {
     //  fetch single class from database 
     
      useEffect(() => {
-        fetch(`http://localhost:5000/classes/${id}`)
+        fetch(`https://elite-sports-academy-server.vercel.app/classes/${id}`)
         .then(res => res.json())
         .then(data => {
           // console.log(data);
@@ -56,7 +56,7 @@ const UpdateClass = () => {
                     feedback :'no feedback yet'
                 };
                 console.log(classData);
-                fetch(`http://localhost:5000/classes/${id}`, {
+                fetch(`https://elite-sports-academy-server.vercel.app/classes/${id}`, {
                     method: 'PUT',
                     headers: {
                       'Content-Type': 'application/json',

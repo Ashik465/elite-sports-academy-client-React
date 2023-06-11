@@ -12,7 +12,7 @@ const usePaymentHistory = () => {
     enabled: !loader,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/enrollClass/paymentHistory?email=${user?.email}`,
+        `https://elite-sports-academy-server.vercel.app/enrollClass/paymentHistory?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

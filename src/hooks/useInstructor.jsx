@@ -12,7 +12,7 @@ const useInstructor = () => {
     enabled: !loader,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/users/isInstructor?email=${user?.email}`,
+        `https://elite-sports-academy-server.vercel.app/users/isInstructor?email=${user?.email}`,
         {
           headers: {
             authorization: `Bearer ${token}`,

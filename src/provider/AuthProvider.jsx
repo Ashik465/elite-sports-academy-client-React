@@ -50,7 +50,7 @@ const googleLogIn = () => {
       setUser(currentUser);
       setLoader(false)
       if(currentUser) {
-        axios.post('http://localhost:5000/jwt', {
+        axios.post('https://elite-sports-academy-server.vercel.app/jwt', {
           email: currentUser.email,
           
         })

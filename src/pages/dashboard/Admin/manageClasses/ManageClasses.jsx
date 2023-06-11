@@ -14,7 +14,7 @@ const ManageClasses = () => {
         const updateStatus = {
             status: "Approve",
         };
-        fetch(`http://localhost:5000/classes/${id}`, {        
+        fetch(`https://elite-sports-academy-server.vercel.app/classes/${id}`, {        
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateStatus),
@@ -41,7 +41,7 @@ const ManageClasses = () => {
         const updateStatus = {
             status: "Deny",
         };
-        fetch(`http://localhost:5000/classes/${id}`, {        
+        fetch(`https://elite-sports-academy-server.vercel.app/classes/${id}`, {        
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateStatus),

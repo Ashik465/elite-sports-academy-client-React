@@ -7,7 +7,7 @@ const PopularClasses = () => {
 
   // Fetch class data from the database
   useEffect(() => {
-    fetch("http://localhost:5000/classes/popularClasses")
+    fetch("https://elite-sports-academy-server.vercel.app/classes/popularClasses")
       .then((res) => res.json())
       .then((data) => {
         setPopularClasses(data);
