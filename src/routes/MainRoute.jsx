@@ -20,13 +20,14 @@ import MySelectedClass from "../pages/dashboard/mySelectedClass/MySelectedClass"
 import Payment from "../pages/dashboard/mySelectedClass/Payment";
 import MyEnrollClasses from "../pages/dashboard/myEnrollClasses/MyEnrollClasses";
 import PaymentHistory from "../pages/dashboard/paymentHistory/PaymentHistory";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
-    //   errorElement: <ErrorPage />,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
@@ -54,7 +55,7 @@ import PaymentHistory from "../pages/dashboard/paymentHistory/PaymentHistory";
     {
       path: "/dashboard",
       element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-      //   errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
       children: [
         {
           path: "addclass",
