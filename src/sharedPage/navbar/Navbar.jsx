@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import LoadingSpiner from "../../loader/LoadingSpiner";
 import logo from "../../assets/logo/logo.png";
+import profile from '../../assets/profile/user.png'
 
 
 const Navbar = () => {
@@ -105,8 +106,7 @@ const handleLogout =()=>{
   {user?.email ? <div className="dropdown dropdown-end z-50 " >
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-        <a  id="my-anchor-element"><img  src={user?.photoURL
-} /></a> <Tooltip anchorSelect="#my-anchor-element"
+        <a  id="my-anchor-element"><img  src={user?.photoURL ? user.photoURL : profile} /></a> <Tooltip anchorSelect="#my-anchor-element"
 content={user.displayName} place="left"></Tooltip>
         </div>
       </label>
