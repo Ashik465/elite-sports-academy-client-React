@@ -31,6 +31,7 @@ const LogIn = () => {
   .catch((err)=>{
     console.log(err)
     setError(err.message)
+    setLoader(false)
     
   })
 
