@@ -16,7 +16,7 @@ const CheckoutForm = ({classData}) => {
 
    //   get clientSecret from backend
    useEffect(() => {
-    if (classData) {
+    if (classData?.price) {
         fetch('https://elite-sports-academy-server.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
