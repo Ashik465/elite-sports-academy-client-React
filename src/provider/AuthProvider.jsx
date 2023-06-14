@@ -31,6 +31,7 @@ const googleLogIn = () => {
   };
   //logout
   const logout = () => {
+    setLoader(true)
     return signOut(auth);
   };
 
@@ -47,8 +48,7 @@ const googleLogIn = () => {
 
  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoader(false)
+      
       if(currentUser) {
         axios.post('https://elite-sports-academy-server.vercel.app/jwt', {
           email: currentUser.email,
@@ -57,12 +57,16 @@ const googleLogIn = () => {
         .then(data => {
           console.log(data.data.token);
           localStorage.setItem('access token', data.data.token);
+          setUser(currentUser);
           setLoader(false)
         }
         )
       }
       else{
         localStorage.removeItem('access token');
+          setUser(currentUser);
+          setLoader(false)
+
       }
     });
 
