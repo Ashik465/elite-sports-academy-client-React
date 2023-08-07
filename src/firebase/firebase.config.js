@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_APIKEY, 
-  authDomain:import.meta.env.VITE_AUTHDOMAIN, 
-  projectId:import.meta.env.VITE_PROJECTID, 
-  storageBucket:import.meta.env.VITE_STORAGEBUCKET, 
-  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID, 
-  appId:import.meta.env.VITE_APPID
+  apiKey: "AIzaSyA0UmideU-vVw6RLYYmz1hn4_LRWlahzu8",
+  authDomain: "elite-sports-academy-53572.firebaseapp.com",
+  projectId: "elite-sports-academy-53572",
+  storageBucket: "elite-sports-academy-53572.appspot.com",
+  messagingSenderId: "404488605062",
+  appId: "1:404488605062:web:43ac3f046fb2246527f007"
 };
 
 // Initialize Firebase
