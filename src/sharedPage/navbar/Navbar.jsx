@@ -78,7 +78,7 @@ const handleLogout =()=>{
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to='/'>Home</NavLink></li> 
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/instructor'>Instructors</NavLink></li>
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/classes'>Classes</NavLink></li>
-      <li><Link  className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' smooth to = '/#steps'>Steps</Link></li>
+      <li><Link  className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400'  to = '/#steps'>Steps</Link></li>
       <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/dashboard'>Dashboard</NavLink></li>
       {/* {user &&   <li><NavLink className= 'focus:bg-transparent hover:bg-transparent hover:text-blue-400' to = '/dashboard'>Dashboard</NavLink></li>} */}
     </ul>
