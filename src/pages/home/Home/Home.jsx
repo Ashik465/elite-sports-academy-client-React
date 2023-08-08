@@ -3,6 +3,7 @@ import Slider from "../banner/Slider";
 import PopularClasses from "../popularClass/PopularClasses";
 import PopularInstructor from "../popularInstructor/PopularInstructor";
 import Campus from "../campus/Campus";
+import Step from "../step/Step";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       </div>
       <PopularClasses></PopularClasses>
       <PopularInstructor></PopularInstructor>
+      <Step></Step>
       <Campus></Campus>
     </>
   );
