@@ -4,6 +4,7 @@ import PopularClasses from "../popularClass/PopularClasses";
 import PopularInstructor from "../popularInstructor/PopularInstructor";
 import Campus from "../campus/Campus";
 import Step from "../step/Step";
+import NextDestination from "../nextDestination/NextDestination";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <PopularClasses></PopularClasses>
       <PopularInstructor></PopularInstructor>
       <Step></Step>
+      <NextDestination></NextDestination>
       <Campus></Campus>
     </>
   );
